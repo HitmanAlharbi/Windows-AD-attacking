@@ -5,9 +5,9 @@
 * [Reverse shells](#Reverse-shells)
 * [Transfer files](#Transfer-files)
 * [Privilege escalation](#Privilege-escalation)
-* [Kerberos - tickets](#Kerberos---tickets)
+* [Kerberos - Tickets](#Kerberos---Tickets)
 * [Pass the hash](#Pass-the-hash)
-* [Enumeration - recon](#Enumeration---recon)
+* [Enumeration - Recon](#Enumeration---Recon)
 * [Bypass security - AV evasion](#Bypass-security---AV-evasion)
 * [Misc commands](#Misc-commands)
 
@@ -155,7 +155,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 &nbsp;
 
-## Kerberos - tickets
+## Kerberos - Tickets
 
 &nbsp;
 &nbsp;
@@ -231,7 +231,7 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 &nbsp;
 
-## Enumeration - recon
+## Enumeration - Recon
 
 &nbsp;
 &nbsp;
