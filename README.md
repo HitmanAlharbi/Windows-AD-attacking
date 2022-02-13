@@ -2,6 +2,10 @@
 
 &nbsp;
 
+Any **useful commands** for **Windows** / **Active Directory** will be posted here :shield::hammer:
+
+&nbsp;
+
 * [Reverse shells](#Reverse-shells)
 * [Transfer files](#Transfer-files)
 * [Privilege escalation](#Privilege-escalation)
