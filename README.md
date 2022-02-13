@@ -5,10 +5,10 @@
 * [Reverse shells](#Reverse-shells)
 * [Transfer files](#Transfer-files)
 * [Privilege escalation](#Privilege-escalation)
-* [Kerberos / tickets](#Kerberos-/-tickets)
+* [Kerberos / tickets](#Kerberos-&-tickets)
 * [Pass the hash](#Pass-the-hash)
-* [Enumeration / recon](#Enumeration-/-recon)
-* [Bypass security / AV evasion](#Bypass-security-/-AV-evasion)
+* [Enumeration / recon](#Enumeration-&-recon)
+* [Bypass security / AV evasion](#Bypass-security-&-AV-evasion)
 * [Misc commands](#Misc-commands)
 
 &nbsp;
@@ -155,7 +155,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 &nbsp;
 
-## Kerberos / tickets
+## Kerberos & tickets
 
 &nbsp;
 &nbsp;
@@ -231,7 +231,7 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 &nbsp;
 
-## Enumeration / recon
+## Enumeration & recon
 
 &nbsp;
 &nbsp;
@@ -269,7 +269,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 &nbsp;
 &nbsp;
 
-## Bypass security / AV evasion
+## Bypass security & AV evasion
 
 &nbsp;
 &nbsp;
