@@ -194,6 +194,8 @@ mimikatz # kerberos::list /export
 **[+] Kerberos Double-Hop problem (powershell)**
 
 ```powershell
+$SecPassword = ConvertTo-SecureString 'YourSecretPassword1337' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential('us.funcorp.local\pastudent1337', $SecPassword)
 Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
     Invoke-Command -ComputerName UFC-WEBPROD -Credential $Using:cred -ScriptBlock {
 		& cmd /c "hostname"    
