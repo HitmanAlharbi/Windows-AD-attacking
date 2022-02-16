@@ -6,7 +6,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-* [Reverse shells :hook:](#reverse-shells-:hook:)
+* [Reverse shells :hook:](#reverse-shells)
 * [Transfer files](#transfer-files)
 * [Privilege escalation](#privilege-escalation)
 * [Kerberos](#Kerberos)
@@ -17,7 +17,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-## Reverse shells :hook:
+## Reverse shells ## :hook:
 
 &nbsp;
 &nbsp;
