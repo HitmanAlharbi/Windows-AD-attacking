@@ -365,3 +365,20 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnec
 
 netsh advfirewall firewall set rule group="remote desktop" new enable=yes
 ```
+
+&nbsp;
+
+**[+] Recursive files search (Powershell)**
+
+```powershell
+// Search for all txt files
+
+Get-ChildItem -Path C:\ -Filter  *.txt -Recurse -ErrorAction SilentlyContinue -Force
+
+// Search for flag.txt
+
+Get-ChildItem -Path C:\ -Filter  flag.txt -Recurse -ErrorAction SilentlyContinue -Force
+```
+
+&nbsp;
+&nbsp;
