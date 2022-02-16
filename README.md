@@ -17,9 +17,12 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-:hook: ## Reverse shells
+## Reverse shells
 
 &nbsp;
+
+:hook:
+
 &nbsp;
 
 
