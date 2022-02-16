@@ -6,13 +6,13 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 
 &nbsp;
 
-* [Reverse shells](#reverse-shells)
+* [Reverse shells :hook:](#reverse-shells-:hook:)
 * [Transfer files](#transfer-files)
 * [Privilege escalation](#privilege-escalation)
 * [Kerberos](#Kerberos)
 * [Pass the hash](#pass-the-hash)
 * [Enumeration](#enumeration)
-* [Bypass security and policies](#bypass-security-and-policies)
+* [Security and policies](#security-and-policies)
 * [Misc commands](#misc-commands)
 
 &nbsp;
@@ -293,7 +293,7 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 &nbsp;
 &nbsp;
 
-## Bypass security and policies :unlock:
+## Security and policies :unlock:
 
 &nbsp;
 &nbsp;
@@ -328,7 +328,7 @@ powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true
 &nbsp;
 &nbsp;
 
-## :zap: Misc commands
+## Misc commands :zap:
 
 &nbsp;
 &nbsp;
