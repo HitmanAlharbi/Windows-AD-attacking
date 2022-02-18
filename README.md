@@ -342,10 +342,16 @@ Get-DomainComputer -UnConstrained | select samaccountname
 
 &nbsp;
 
-**[+] Enumerate users have contrained delegation enabled (Need PowerView.ps1)**
+**[+] Enumerate users/computers have contrained delegation enabled (Need PowerView.ps1)**
 
 ```powershell
+// Users
+
 Get-DomainUser -TrustedToAuth | select samaccountname, msds-allowedtodelegateto
+
+// Computers
+
+Get-Domaincomputer -TrustedToAuth | select samaccountname, msds-allowedtodelegateto
 ```
 
 &nbsp;
