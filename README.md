@@ -324,6 +324,14 @@ Invoke-BloodHound -CollectionMethod All
 Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 ```
 
+&nbsp;
+
+**[+] Identifying if LAPS is Installed (Powershell)**
+
+```powershell
+Get-ChildItem 'c:\program files\LAPS\CSE\Admpwd.dll'
+```
+
 
 &nbsp;
 &nbsp;
