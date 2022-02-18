@@ -332,6 +332,21 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 Get-ChildItem 'c:\program files\LAPS\CSE\Admpwd.dll'
 ```
 
+&nbsp;
+
+**[+] Discover domain's computers have unconstrained delegation (Need PowerView.ps1)**
+
+```powershell
+Get-DomainComputer -UnConstrained | select samaccountname
+```
+
+&nbsp;
+
+**[+] Enumerate users have contrained delegation enabled (Need PowerView.ps1)**
+
+```powershell
+Get-DomainUser -TrustedToAuth | select samaccountname, msds-allowedtodelegateto
+```
 
 &nbsp;
 &nbsp;
