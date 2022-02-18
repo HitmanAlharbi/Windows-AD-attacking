@@ -422,4 +422,18 @@ Get-ChildItem -Path C:\ -Filter  flag.txt -Recurse -ErrorAction SilentlyContinue
 ```
 
 &nbsp;
+
+**[+] Encode and decode a file (Base64)**
+
+```powershell
+// Encode a file to base64
+
+certutil -encode mail.exe encoded.txt
+
+// Decode a base64 file
+
+certutil -decode encoded.txt mail.exe
+```
+
+&nbsp;
 &nbsp;
