@@ -12,6 +12,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 * [Kerberos :label:](#Kerberos)
 * [Pass the hash :joystick:](#pass-the-hash)
 * [Enumeration :mag:](#enumeration)
+* [MSSQL :card_index:](#MSSQL)
 * [Security and policies :unlock:](#security-and-policies)
 * [Misc commands :zap:](#misc-commands)
 
@@ -372,6 +373,56 @@ Get-DomainSID -Domain funcorp.local
 
 &nbsp;
 &nbsp;
+
+## MSSQL
+
+&nbsp;
+
+:card_index: Some commands will help you in pentesting MSSQL
+
+&nbsp;
+
+**[+] Get list of sql servers on the domain (PowerUpSQL)**
+
+```powershell
+Get-SQLInstanceDomain -Verbose | Get-SQLConnectionTestThreaded -Verbose 
+```
+
+&nbsp;
+
+**[+] Execute a custom query (PowerUpSQL)**
+
+```powershell
+Get-SQLQuery -Instance AC-DBREPORT -Query "SELECT current_user"
+```
+
+&nbsp;
+
+**[+] Escalate the privileges (PowerUpSQL)**
+
+```powershell
+Invoke-SQLEscalatePriv -Verbose -Instance DBSERVER
+```
+
+&nbsp;
+
+**[+] Crawl database links (PowerUpSQL)**
+
+```powershell
+Get-SqlServerLinkCrawl -Verbose -Instance UFC-SQLDEV
+```
+
+&nbsp;
+
+**[+] Crawl database links and execute a custom query (PowerUpSQL)**
+
+```powershell
+ Get-SqlServerLinkCrawl -Verbose -Instance UFC-SQLDEV -Query "select current_user" 
+```
+
+&nbsp;
+&nbsp;
+
 
 ## Security and policies
 
