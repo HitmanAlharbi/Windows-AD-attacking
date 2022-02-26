@@ -372,6 +372,14 @@ Get-DomainSID -Domain funcorp.local
 ```
 
 &nbsp;
+
+**[+] Find interesting ACLs in another domain (Need PowerView.ps1)**
+
+```powershell
+Find-InterestingDomainAcl -Domain TrustedForest.corp
+```
+
+&nbsp;
 &nbsp;
 
 ## MSSQL
