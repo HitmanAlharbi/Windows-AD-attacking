@@ -13,6 +13,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 * [Pass the hash :joystick:](#pass-the-hash)
 * [Enumeration :mag:](#enumeration)
 * [MSSQL :card_index:](#MSSQL)
+* [LAPS :key:](#LAPS)
 * [Security and policies :unlock:](#security-and-policies)
 * [Misc commands :zap:](#misc-commands)
 
@@ -439,14 +440,6 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 
 &nbsp;
 
-**[+] Identifying if LAPS is Installed (Powershell)**
-
-```powershell
-Get-ChildItem 'c:\program files\LAPS\CSE\Admpwd.dll'
-```
-
-&nbsp;
-
 **[+] Discover domain's computers have unconstrained delegation (Need PowerView.ps1)**
 
 ```powershell
@@ -554,6 +547,63 @@ RECONFIGURE
 &nbsp;
 &nbsp;
 
+## LAPS
+
+&nbsp;
+
+:key: Local Administrator Password Solution (LAPS) commands
+- You need to install LAPS module, you can download it from here:
+https://github.com/ztrhgf/LAPS
+
+&nbsp;
+
+**[+] Identifying if LAPS is installed in the current computer (Powershell)**
+
+```powershell
+Get-ChildItem 'c:\program files\LAPS\CSE\Admpwd.dll'
+```
+
+&nbsp;
+
+**[+] Enumerate OUs LAPS is in use and which group/users can read the passwords (Need LAPS module)**
+
+```powershell
+PS C:\Users\itemployee14\Desktop\PS modules> Import-Module .\AdmPwd.PS\AdmPwd.PS.psd1
+PS C:\Users\itemployee14\Desktop\PS modules> Find-AdmPwdExtendedRights -Identity *
+
+Name                 DistinguishedName                                                 Status
+----                 -----------------                                                 ------
+Domain Controllers   OU=Domain Controllers,DC=gcb,DC=local                             Delegated
+Domain Controllers   OU=Domain Controllers,DC=it,DC=gcb,DC=local                       Delegated
+AppServers           OU=AppServers,DC=it,DC=gcb,DC=local                               Delegated
+ITEmployees          OU=ITEmployees,DC=it,DC=gcb,DC=local                              Delegated
+PreProd              OU=PreProd,DC=it,DC=gcb,DC=local                                  Delegated
+
+PS C:\Users\itemployee14\Desktop\PS modules> Find-AdmPwdExtendedRights -Identity AppServers
+
+ObjectDN                                      ExtendedRightHolders
+--------                                      --------------------
+OU=AppServers,DC=it,DC=gcb,DC=local           {NT AUTHORITY\SYSTEM, IT\Domain Admins, IT\LocalAdmins}
+```
+
+&nbsp;
+
+**[+] Get all domain's computer and check LAPS for passwords (Need AD & LAPs modules)**
+
+```powershell
+PS C:\Users\itemployee14\Desktop\PS modules> get-adcomputer -filter * | get-admpwdpassword
+
+ComputerName         DistinguishedName                             Password           ExpirationTimestamp
+------------         -----------------                             --------           -------------------
+IT-DC                CN=IT-DC,OU=Domain Controllers,DC=it,DC=gc...                    1/1/0001 12:00:00 AM
+IT-PREPROD           CN=IT-PREPROD,OU=PreProd,DC=it,DC=gcb,DC=l...                    1/1/0001 12:00:00 AM
+IT-SQLSRV02          CN=IT-SQLSRV02,CN=Computers,DC=it,DC=gcb,D...                    1/1/0001 12:00:00 AM
+IT-APPSRV01          CN=IT-APPSRV01,OU=AppServers,DC=it,DC=gcb,...                    6/27/2019 5:45:32 AM
+IT-TRACK01           CN=IT-TRACK01,CN=Computers,DC=it,DC=gcb,DC...                    1/1/0001 12:00:00 AM
+```
+
+&nbsp;
+&nbsp;
 
 ## Security and policies
 
