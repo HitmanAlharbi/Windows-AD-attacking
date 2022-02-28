@@ -354,6 +354,51 @@ Get-NetComputer | select samaccountname, operatingsystem
 &nbsp;
 
 
+**[+] Get current domain's information (Active directory module)**
+
+```powershell
+Get-ADDomain
+```
+
+&nbsp;
+
+
+**[+] Get current domain's users (Active directory module)**
+
+```powershell
+Get-ADUser -Filter * | Select SamAccountName
+```
+
+&nbsp;
+
+
+**[+] Get current domain's computers (Active directory module)**
+
+```powershell
+Get-AdComputer -Filter * | select Name
+```
+
+&nbsp;
+
+
+**[+] Get current domain's groups (Active directory module)**
+
+```powershell
+Get-ADGroup -Filter * | select name
+```
+
+&nbsp;
+
+
+**[+] Get specific group's members (Active directory module)**
+
+```powershell
+Get-ADGroupMember -Identity "Administrators" -Recursive
+```
+
+&nbsp;
+
+
 **[+] enum SMB shares using smbclient (Smbclient available in Kali Linux)**
 
 ```powershell
