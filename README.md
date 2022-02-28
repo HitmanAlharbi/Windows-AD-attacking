@@ -209,6 +209,16 @@ C:\Users\victim\Desktop>sc start SNMPTRAP
 ```
 
 &nbsp;
+
+**[+] Search for unquoted service paths"**
+
+```powershell
+// For exploitation check this article: https://www.ired.team/offensive-security/privilege-escalation/unquoted-service-paths
+
+wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows\\" |findstr /i /v """
+```
+
+&nbsp;
 &nbsp;
 
 ## Kerberos
