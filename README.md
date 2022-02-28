@@ -712,6 +712,16 @@ Get-ChildItem -Path C:\ -Filter  flag.txt -Recurse -ErrorAction SilentlyContinue
 
 &nbsp;
 
+**[+] Search for files in a specific date range (Powershell)**
+
+```powershell
+// If you want to search for folders or files without extensions, please remove (-include *.*)
+
+Get-ChildItem -erroraction 'silentlycontinue' -recurse -include *.* -path C:\Users | ? {$_.lastwritetime -gt '10/10/2020' -AND $_.lastwritetime -lt '11/11/2020'}
+```
+
+&nbsp;
+
 **[+] Encode and decode a file (Base64)**
 
 ```powershell
