@@ -551,9 +551,7 @@ RECONFIGURE
 
 &nbsp;
 
-:key: Local Administrator Password Solution (LAPS) commands
-- You need to install LAPS module, you can download it from here:
-https://github.com/ztrhgf/LAPS
+:key: Local Administrator Password Solution (LAPS) commands, please install LAPS module: https://github.com/ztrhgf/LAPS
 
 &nbsp;
 
