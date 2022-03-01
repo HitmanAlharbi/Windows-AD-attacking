@@ -573,6 +573,14 @@ Get-ChildItem 'c:\program files\LAPS\CSE\Admpwd.dll'
 
 &nbsp;
 
+**[+] Get domain's computers have LAPS (Need AD module)**
+
+```powershell
+Get-ADComputer -filter {ms-mcs-admpwdexpirationtime -like '*'}
+```
+
+&nbsp;
+
 **[+] Enumerate OUs LAPS is in use and which group/users can read the passwords (Need LAPS module)**
 
 ```powershell
