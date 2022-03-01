@@ -489,6 +489,8 @@ Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 **[+] Displays a service's security descriptor (CMD)**
 
 ```powershell
+// scmanager is the service's name, you can write any service 
+
 sc sdshow scmanager
 ```
 
@@ -752,14 +754,14 @@ Send-MailMessage -From "user<user@domain.com>" -To "lbunce<lbunce@amazecorp.loca
 
 &nbsp;
 
-**[+] Convert SID to name (Need AD module)**
+**[+] Get group or user by SID (Need AD module)**
 
 ```powershell
-// To a group
+// AD Group 
 
 Get-ADGroup -Identity S-1-5-21-948911695-1962824894-4291460450-1124
 
-// To a username
+// AD Username
 
 Get-ADUser -Identity S-1-5-21-948911695-1962824894-4291460450-26105
 ```
