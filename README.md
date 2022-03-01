@@ -485,6 +485,14 @@ Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 ```
 
 &nbsp;
+
+**[+] Displays a service's security descriptor (CMD)**
+
+```powershell
+sc sdshow scmanager
+```
+
+&nbsp;
 &nbsp;
 
 ## MSSQL
@@ -740,6 +748,20 @@ certutil -decode encoded.txt mail.exe
 
 ```powershell
 Send-MailMessage -From "user<user@domain.com>" -To "lbunce<lbunce@amazecorp.local>" -Subject "Check the important doc please" -SmtpServer 192.168.21.55 -Attachments .\doc.chm
+```
+
+&nbsp;
+
+**[+] Convert SID to name (Need AD module)**
+
+```powershell
+// To a group
+
+Get-ADGroup -Identity S-1-5-21-948911695-1962824894-4291460450-1124
+
+// To a username
+
+Get-ADUser -Identity S-1-5-21-948911695-1962824894-4291460450-26105
 ```
 
 
