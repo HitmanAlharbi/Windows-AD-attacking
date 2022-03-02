@@ -619,6 +619,14 @@ IT-TRACK01           CN=IT-TRACK01,CN=Computers,DC=it,DC=gcb,DC...              
 ```
 
 &nbsp;
+
+**[+] Get password from LAPS for a specific machine (Need AD module)**
+
+```powershell
+ Get-ADComputer -Identity it-appsrv01 -Properties ms-mcs-admpwd | select -ExpandProperty ms-mcs-admpwd
+```
+
+&nbsp;
 &nbsp;
 
 ## Security and policies
