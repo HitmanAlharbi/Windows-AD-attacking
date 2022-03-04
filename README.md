@@ -286,7 +286,7 @@ kerberos::golden /user:Hitman /domain:DOMAIN /sid:DOMAIN-SID /krbtgt:HASH /ticke
 
 &nbsp;
 
-**[+] Extract User/NTLM from keytab file (Linux)**
+**[+] Extract SPN/NTLM from keytab file (Linux)**
 
 ```bash
 // https://github.com/sosdave/KeyTabExtract
