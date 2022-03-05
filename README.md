@@ -427,6 +427,21 @@ Get-ADGroupMember -Identity "Administrators" -Recursive
 &nbsp;
 
 
+**[+] Get users & computer with specific properties, my favorite way to enumerate :D (Active directory module)**
+
+```powershell
+// Get users and some properties like passwordlastset to know when it changed and the description
+
+Get-ADUser -filter * -properties passwordlastset,description | ft Name, passwordlastset, Description
+
+// Get computer ...
+
+Get-ADComputer -filter * -properties passwordlastset,description | ft Name, passwordlastset, Description
+```
+
+&nbsp;
+
+
 **[+] enum SMB shares using smbclient (Smbclient available in Kali Linux)**
 
 ```powershell
