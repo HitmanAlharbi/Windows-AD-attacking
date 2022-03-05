@@ -538,6 +538,30 @@ Get-SQLQuery -Instance AC-DBREPORT -Query "SELECT current_user"
 
 &nbsp;
 
+**[+] Execute a query to get the databases names (PowerUpSQL)**
+
+```powershell
+Get-SQLQuery -Instance msp-sqlreport -Query "SELECT name FROM master..sysdatabases;"
+```
+
+&nbsp;
+
+**[+] Execute a query to get the tables from specific database (PowerUpSQL)**
+
+```powershell
+Get-SQLQuery -Instance msp-sqlreport -Query "SELECT name FROM DatabaseNameYouWant..sysobjects WHERE xtype = 'U';"
+```
+
+&nbsp;
+
+**[+] Execute a query to get the linked servers (PowerUpSQL)**
+
+```powershell
+Get-SQLQuery -Instance msp-sqlreport -Query "exec sp_linkedservers;"
+```
+
+&nbsp;
+
 **[+] Escalate the privileges (PowerUpSQL)**
 
 ```powershell
