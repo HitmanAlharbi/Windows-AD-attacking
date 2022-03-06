@@ -866,4 +866,12 @@ Add-ADGroupMember -Identity $group -Members $pc
 
 
 &nbsp;
+
+**[+] Unzip compressed file (PowerShell)**
+
+```powershell
+Expand-Archive -Force ad.zip C:\users\public\ad
+```
+
+&nbsp;
 &nbsp;
