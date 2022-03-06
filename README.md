@@ -472,6 +472,14 @@ Invoke-ACLScanner -ResolveGUID | ? {$_.IdentityReferenceName -like "*jumpsrv*"}
 
 &nbsp;
 
+**[+] Find all ACLs for specific computer/group/user's SID (Need PowerView.ps1)**
+
+```powershell
+Get-ObjectAcl -ResolveGUIDs -Domain internal.msp.local | ? {$_.SecurityIdentifier -like "S-1-5-21-2754435719-1041067879-922430489-1118"}
+```
+
+&nbsp;
+
 **[+] Discover domain's computers have unconstrained delegation (Need PowerView.ps1)**
 
 ```powershell
@@ -836,6 +844,24 @@ Get-ADGroup -Identity S-1-5-21-948911695-1962824894-4291460450-1124
 // AD Username
 
 Get-ADUser -Identity S-1-5-21-948911695-1962824894-4291460450-26105
+```
+
+&nbsp;
+
+**[+] Add a domain computer to different domain group (Need AD module)**
+
+```powershell
+// Group name and specify the domain
+
+$group = Get-ADGroup -Identity 'DatabaseOwners' -Server 'alharbi.corp'
+
+// Computer name and specify the domain ( You can change it to user by using "Get-ADUser")
+
+$pc = Get-ADComputer -Identity 'hitman-pc01$' -Server 'hitman.corp'
+
+// Add the computer to the group :D
+
+Add-ADGroupMember -Identity $group -Members $pc
 ```
 
 
