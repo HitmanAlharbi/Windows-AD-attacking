@@ -442,6 +442,21 @@ Get-ADComputer -filter * -properties passwordlastset,description | ft Name, pass
 &nbsp;
 
 
+**[+] Search for local admin access (Need PowerView.ps1)**
+
+```powershell
+// Get all computers from specific domain
+
+$computers = Get-NetComputer -Domain hitman.msp.local
+
+// Use Invoke-Command to check if you can execute command on them
+
+Invoke-Command -ErrorAction SilentlyContinue -ScriptBlock{ hostname } -Computer ($computers.dnshostName)
+```
+
+&nbsp;
+
+
 **[+] enum SMB shares using smbclient (Smbclient available in Kali Linux)**
 
 ```powershell
