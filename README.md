@@ -906,5 +906,16 @@ Add-ADGroupMember -Identity $group -Members $pc
 Expand-Archive -Force ad.zip C:\users\public\ad
 ```
 
+
+&nbsp;
+
+**[+] Sniff network packets (PowerShell)**
+
+```powershell
+// Download the sniffer.ps1 from https://raw.githubusercontent.com/sperner/PowerShell/master/Sniffer.ps1
+
+./sniffer.ps1 -LocalIP 192.168.4.111  -ScanIP 192.168.42.14 -Protocol tcp
+```
+
 &nbsp;
 &nbsp;
