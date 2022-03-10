@@ -13,6 +13,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 * [Pass the hash :joystick:](#pass-the-hash)
 * [Enumeration :mag:](#enumeration)
 * [MSSQL :card_index:](#MSSQL)
+* [JEA :sparkles:](#JEA)
 * [LAPS :key:](#LAPS)
 * [Security and policies :unlock:](#security-and-policies)
 * [Misc commands :zap:](#misc-commands)
@@ -568,14 +569,6 @@ sc sdshow scmanager
 ```
 
 &nbsp;
-
-**[+] Gets the capabilities of a specific user on a constrained session configuration (JEA)**
-
-```powershell
-Get-PSSessionCapability -ConfigurationName ITAccess -Username vanessa
-```
-
-&nbsp;
 &nbsp;
 
 ## MSSQL
@@ -729,6 +722,40 @@ IT-TRACK01           CN=IT-TRACK01,CN=Computers,DC=it,DC=gcb,DC...              
 
 ```powershell
  Get-ADComputer -Identity it-appsrv01 -Properties ms-mcs-admpwd | select -ExpandProperty ms-mcs-admpwd
+```
+
+&nbsp;
+&nbsp;
+
+## JEA
+
+&nbsp;
+
+:sparkles: Just Enough Administration (JEA) is a security technology that enables delegated administration for anything managed by PowerShell
+
+&nbsp;
+
+**[+] Gets the registered session configurations on the computer**
+
+```powershell
+Get-PSSessionConfiguration
+```
+
+&nbsp;
+
+**[+] create and register a configurations on the computer**
+
+```powershell
+New-PSSessionConfigurationFile -SessionType RestrictedRemoteServer -Path .\JEA.pssc
+Register-PSSessionConfiguration -Path .\JEA.pssc -Name 'Persist' -Force
+```
+
+&nbsp;
+
+**[+] Gets the capabilities of a specific user on a constrained session configuration**
+
+```powershell
+Get-PSSessionCapability -ConfigurationName ITAccess -Username vanessa
 ```
 
 &nbsp;
