@@ -13,8 +13,8 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 * [Pass the hash :joystick:](#pass-the-hash)
 * [Enumeration :mag:](#enumeration)
 * [MSSQL :card_index:](#MSSQL)
-* [JEA :sparkles:](#JEA)
 * [LAPS :key:](#LAPS)
+* [JEA :sparkles:](#JEA)
 * [Security and policies :unlock:](#security-and-policies)
 * [Misc commands :zap:](#misc-commands)
 
