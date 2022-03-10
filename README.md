@@ -568,6 +568,16 @@ sc sdshow scmanager
 ```
 
 &nbsp;
+
+**[+] 
+
+Gets the capabilities of a specific user on a constrained session configuration (JEA)**
+
+```powershell
+Get-PSSessionCapability -ConfigurationName ITAccess -Username vanessa
+```
+
+&nbsp;
 &nbsp;
 
 ## MSSQL
