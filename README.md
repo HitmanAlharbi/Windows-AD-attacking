@@ -870,6 +870,33 @@ sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) 
 ```
 
 &nbsp;
+
+**[+] Allow trusted hosts in WinRM**
+
+```powershell
+// The problem
+
+PS C:\Users\Public> Invoke-Command -ComputerName 192.168.144.1 -Credential $cred -ScriptBlock { hostname }
+Invoke-Command -ComputerName 192.168.144.1 -Credential $cred -ScriptBlock { hostname }
+[192.168.144.1] Connecting to remote server 192.168.144.1 failed with the following error message : The WinRM client
+cannot process the request. Default authentication may be used with an IP address under the following conditions: the
+transport is HTTPS or the destination is in the TrustedHosts list, and explicit credentials are provided. Use
+winrm.cmd to configure TrustedHosts. Note that computers in the TrustedHosts list might not be authenticated. For more
+information on how to set TrustedHosts run the following command: winrm help config. For more information, see the
+about_Remote_Troubleshooting Help topic.
+    + CategoryInfo          : OpenError: (192.168.144.1:String) [], PSRemotingTransportException
+    + FullyQualifiedErrorId : CannotUseIPAddress,PSSessionStateBroken
+    
+// Solution
+
+PS C:\Users\Public> Set-item WSMan:\localhost\Client\TrustedHosts -Value * -Force
+Set-item WSMan:\localhost\Client\TrustedHosts -Value * -Force
+PS C:\Users\Public> Invoke-Command -ComputerName 192.168.144.1 -Credential $cred -ScriptBlock { hostname }
+Invoke-Command -ComputerName 192.168.144.1 -Credential $cred -ScriptBlock { hostname }
+sec-dc
+```
+
+&nbsp;
 &nbsp;
 
 ## Misc commands
