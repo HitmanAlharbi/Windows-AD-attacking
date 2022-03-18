@@ -15,6 +15,7 @@ Any **useful commands** for **Windows** / **Active Directory** will be posted he
 * [MSSQL :card_index:](#MSSQL)
 * [LAPS :key:](#LAPS)
 * [JEA :sparkles:](#JEA)
+* [WSUS :mega:](#WSUS)
 * [Security and policies :unlock:](#security-and-policies)
 * [Misc commands :zap:](#misc-commands)
 
@@ -574,14 +575,6 @@ Find-InterestingDomainAcl -Domain TrustedForest.corp
 
 &nbsp;
 
-**[+] Get AppLocker rules/policies (Powershell)**
-
-```powershell
-Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
-```
-
-&nbsp;
-
 **[+] Displays a service's security descriptor (CMD)**
 
 ```powershell
@@ -811,6 +804,57 @@ finance\vanessa
 &nbsp;
 &nbsp;
 
+## WSUS
+
+&nbsp;
+
+:mega: Windows Server Update Services (WSUS) 
+
+&nbsp;
+
+**[+] Get the local WSUS server **
+
+```powershell
+[gcb-wsus.gcb.local]: PS C:\Users\Administrator.GCB\Documents> Get-WsusServer
+
+Name : GCB-WSUS
+```
+
+&nbsp;
+
+**[+] Get WSUS's clients/computers **
+
+```powershell
+[gcb-wsus.gcb.local]: PS C:\Users\Administrator.GCB\Documents>  Get-WsusComputer -All
+
+Computer  IP Address    Operating System             Last Status Report
+--------  ----------    ----------------             ------------------
+vault-srv 192.168.X.X  Windows Server 2019 Standard 10/2/2020 1:39:49 PM
+```
+
+&nbsp;
+
+**[+] Get all products for a WSUS server **
+
+```powershell
+[gcb-wsus.gcb.local]: PS C:\Users\Administrator.GCB\Documents> Get-WsusProduct
+
+Title                                                               ID
+-----                                                               --
+Exchange 2000 Server                                                83a83e29-7d55-44a0-afed-aea164bc35e6
+Exchange Server 2003                                                3cf32f7c-d8ee-43f8-a0da-8b88a6f8af1a
+Exchange                                                            352f9494-d516-4b40-a21a-cd2416098982
+Internet Security and Acceleration Server                           0580151d-fd22-4401-aa2b-ce1e3ae62bc9
+Local Publisher                                                     7c40e8c2-01ae-47f5-9af2-6e75a0582518
+Locally published packages                                          5cc25303-143f-40f3-a2ff-803a1db69955
+Microsoft Azure StorSimple                                          03421cec-2054-47e2-8caa-6209ab4b82a8
+Microsoft Corporation                                               56309036-4c77-4dd9-951a-99ee9c246a94
+```
+
+&nbsp;
+&nbsp;
+
+
 ## Security and policies
 
 &nbsp;
@@ -889,6 +933,14 @@ sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) 
 // Run file directly without dot source
 
 .\run.ps1
+```
+
+&nbsp;
+
+**[+] Get AppLocker rules/policies (Powershell)**
+
+```powershell
+Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 ```
 
 &nbsp;
