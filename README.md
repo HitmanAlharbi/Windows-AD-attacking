@@ -812,7 +812,7 @@ finance\vanessa
 
 &nbsp;
 
-**[+] Get the local WSUS server **
+**[+] Get the local WSUS server**
 
 ```powershell
 [gcb-wsus.gcb.local]: PS C:\Users\Administrator.GCB\Documents> Get-WsusServer
@@ -822,7 +822,7 @@ Name : GCB-WSUS
 
 &nbsp;
 
-**[+] Get WSUS's clients/computers **
+**[+] Get WSUS's clients/computers**
 
 ```powershell
 [gcb-wsus.gcb.local]: PS C:\Users\Administrator.GCB\Documents>  Get-WsusComputer -All
@@ -834,7 +834,7 @@ vault-srv 192.168.X.X  Windows Server 2019 Standard 10/2/2020 1:39:49 PM
 
 &nbsp;
 
-**[+] Get all products for a WSUS server **
+**[+] Get all products for a WSUS server**
 
 ```powershell
 [gcb-wsus.gcb.local]: PS C:\Users\Administrator.GCB\Documents> Get-WsusProduct
